@@ -1,120 +1,119 @@
-# Задача 2. Написать программу, в которой есть главный класс Games со статическим полем Year,
-# опишите конструктор присваивающий значение полю Year, также опишите метод getName, который возвращает имя игры.
-# На основе главного класса путем наследования опишите четыре класса PCGames, PS4Games, XboxGames, MobileGames.
-# Добавьте каждому классу дополнительные поля и переопределите у всех классов метод getName.
+# Задача 2. Необходимо написать программу в которой описать один базовый класс в нем описать конструктор,
+# и класс потомок. Описать в классе потомке конструктор с параметрами по умолчанию.
+# Затем нужно описать класс для которого класс потомок является базовым классом и в нем переопределить конструктор.
+# В каждом классе описать по два поля и методы — show, get, set для каждого поля.
 
-class Games:
-    year = "Default year"
+class Furniture:
+    def __init__(self, name, amount):
+        self.name = name
+        self.amount = amount
 
-    def __init__(self, year, name):
-        self.year = year
+    def show_name(self):
+        print(f"Название {self.name}")
+
+    def show_amount(self):
+        print(f"Количество {self.amount}")
+
+    def get_name(self):
+        return self.name
+
+    def get_amount(self):
+        return self.amount
+
+    def set_name(self, name):
         self.name = name
 
-    def get_name(self, name):
-        return self.name
+    def set_amount(self, amount):
+        self.amount = amount
 
 
-class PCGames(Games):
-    def __init__(self, year, name, download_location):
-        super().__init__(year, name)
-        self.download_location = download_location
+class Chairs(Furniture):
+    def __init__(self, name, amount, back_material='grid', seat_material='cloth'):
+        super().__init__(name, amount)
+        self.back_material = back_material
+        self.seat_material = seat_material
 
-    def get_name(self, name):
-        self.name = 'PCGames'
-        return self.name
+    def show_back_material(self):
+        print(self.back_material)
 
+    def get_back_material(self):
+        return self.back_material
 
-class PS4Games(Games):
-    def __init__(self, year, name, type_of_games):
-        super().__init__(year, name)
-        self.type_of_games = type_of_games
+    def set_back_material(self, back_material):
+        self.back_material = back_material
 
-    def get_name(self, name):
-        self.name = 'PS4Games'
-        return self.name
+    def show_seat_material(self):
+        print(self.seat_material)
 
+    def get_seat_material(self):
+        return self.seat_material
 
-class XboxGames(Games):
-    def __init__(self, year, name, type_of_games):
-        super().__init__(year, name)
-        self.type_of_games = type_of_games
-
-    def get_name(self, name):
-        self.name = 'XboxGames'
-        return self.name
+    def set_seat_material(self, seat_material):
+        self.seat_material = seat_material
 
 
-class MobileGames(Games):
-    def __init__(self, year, name, shop):
-        super().__init__(year, name)
-        self.shop = shop
+class OfficeChair(Chairs):
+    def __init__(self, roller_material, weight_restrictions, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.roller_material = roller_material
+        self.weight_restrictions = weight_restrictions
 
-    def get_name(self, name):
-        self.name = 'MobileGames'
-        return self.name
+    def show_name(self):
+        print(f"Название {self.roller_material}")
 
+    def show_amount(self):
+        print(f"Количество {self.weight_restrictions}")
 
-# Задача 3. Напишите программу с пустым классом Country.
-# Опишите наследуемые от класса Country классы Russia, Canada, Germany.
-# Добавьте каждому классу поле population и опишите метод setPopulation и getPopulation.
+    def get_name(self):
+        return self.roller_material
 
-class Country:
-    def __init__(self, population):
-        self.population = population
+    def get_amount(self):
+        return self.weight_restrictions
 
-    def set_population(self, population):
-        self.population = population
+    def set_name(self, roller_material):
+        self.roller_material = roller_material
 
-    def get_population(self):
-        return self.population
-
-
-class Russia(Country):
-    def __init__(self, area,  population):
-        super().__init__(population)
-        self.area = area
+    def set_amount(self, weight_restrictions):
+        self.weight_restrictions = weight_restrictions
 
 
-class Canada(Country):
-    def __init__(self, capital, population):
-        super().__init__(population)
-        self.capital = capital
+# Задача 2. Базовый уровень.
+# Николаю требуется проверить, возможно ли из представленных отрезков условной длины сформировать треугольник.
+# Для этого он решил создать класс TriangleChecker, принимающий только положительные числа.
+# С помощью метода is_triangle() возвращаются следующие значения (в зависимости от ситуации):
+# – Ура, можно построить треугольник!;
+# – С отрицательными числами ничего не выйдет!;
+# – Нужно вводить только числа!;
+# – Жаль, но из этого треугольник не сделать.
+
+class TriangleChecker:
+    def __init__(self, length):
+        self.length = length
+
+    def is_triangle(self):
+        for i in range(len(self.length)):
+            if not str(self.length[i]).isdigit():
+                if str(self.length[i])[:1] == '-':
+                    return '– С отрицательными числами ничего не выйдет!;'
+                else:
+                    return '– Нужно вводить только числа!;'
+
+            elif int(self.length[i]) < 0:
+                return '– С отрицательными числами ничего не выйдет!;'
+
+        if self.length[0] + self.length[1] <= self.length[2] or self.length[0] + self.length[2] <= self.length[1] or \
+                self.length[1] + self.length[2] <= self.length[0]:
+            return '– Жаль, но из этого треугольник не сделать.'
+
+        elif int(self.length[0]) > 0 and int(self.length[1]) > 0 and int(self.length[2]) > 0:
+            return '– Ура, можно построить треугольник!;'
 
 
-class Germany(Country):
-    def __init__(self, gdp, population):
-        super().__init__(population)
-        self.gdp = gdp
-
-
-g = Germany(4200, 84318653)
-print(g.get_population())
-g.set_population(84320000)
-print(g.get_population())
-
-# Задача 4. Напишите программу в которой есть главный класс с текстовым полем.
-# В главное классе должен быть метод для присваивания значения полю: без аргументов и с одним текстовым аргументом.
-# Объект главного класса создаётся передачей одного текстового аргумента конструктору.
-# На основе главного класса создается класса потомок. В классе-потомке нужно добавить числовое поле.
-# У конструктора класса-потомка два аргумента.
-
-
-class Home:
-    type_of_foundation = "Plate"
-
-    def __init__(self, roof_material):
-        self.roof_material = roof_material
-
-    def set_type_of_foundation(self, type_of_foundation):
-        self.type_of_foundation = type_of_foundation
-
-    @staticmethod
-    def start():
-        print("Стройка идет")
-
-
-class Private(Home):
-    def __init__(self, roof_material, number_of_rooms, type_of_heating):
-        super().__init__(roof_material)
-        self.number_of_rooms = number_of_rooms
-        self.type_of_heating = type_of_heating
+segment1 = TriangleChecker([3, -2, 5])
+print(segment1.is_triangle())
+segment2 = TriangleChecker([3, 2, 5])
+print(segment2.is_triangle())
+segment3 = TriangleChecker([3, 'Два', 5])
+print(segment3.is_triangle())
+segment1 = TriangleChecker([2, 3, 4])
+print(segment1.is_triangle())
