@@ -117,3 +117,69 @@ segment3 = TriangleChecker([3, 'Два', 5])
 print(segment3.is_triangle())
 segment1 = TriangleChecker([2, 3, 4])
 print(segment1.is_triangle())
+
+
+# Задача 3. Базовый уровень.
+# Евгения создала класс KgToPounds с параметром kg, куда передается определенное количество килограмм,
+# а с помощью метода to_pounds() они переводятся в фунты.
+# Чтобы закрыть доступ к переменной “kg” она реализовала методы set_kg() - для задания нового значения килограммов,
+# get_kg()  - для вывода текущего значения кг. Из-за этого возникло неудобство:
+# нам нужно теперь использовать эти 2 метода для задания и вывода значений.
+# Помогите ей переделать класс с использованием функции property() и свойств-декораторов. Код приведен ниже.
+
+# Вариант 1 со свойством декоратора
+class KgToPounds:
+    def __init__(self, kg):
+        self.__kg = kg
+
+    def to_pounds(self):
+        return self.__kg * 2.205
+
+    @property
+    def working_with_kg(self):
+        return self.__kg
+
+    @working_with_kg.setter
+    def working_with_kg(self, new_kg):
+        if isinstance(new_kg, (int, float)):
+            self.__kg = new_kg
+        else:
+            raise ValueError('Килограммы задаются только числами')
+
+
+kg1 = KgToPounds(1)
+print(kg1.working_with_kg)
+kg1.working_with_kg = 5
+print(kg1.working_with_kg)
+
+# kg1.working_with_kg = 'two'
+# print(kg1.working_with_kg) # выдает ValueError: Килограммы задаются только числами
+
+
+# Вариант 2 с функцией property()
+class Kg:
+    def __init__(self, kg):
+        self.__kg = kg
+
+    def to_pounds(self):
+        return self.__kg * 2.205
+
+    def set_kg(self, new_kg):
+        if isinstance(new_kg, (int, float)):
+            self.__kg = new_kg
+        else:
+            raise ValueError('Килограммы задаются только числами')
+
+    def get_kg(self):
+        return self.__kg
+
+    property(to_pounds, set_kg, get_kg)
+
+
+kg3 = Kg(1)
+print(kg3.get_kg())
+kg3.set_kg(5)
+print(kg3.get_kg())
+
+# kg3.set_kg('two')
+# print(kg3.get_kg()) # выдает ValueError: Килограммы задаются только числами
