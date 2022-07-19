@@ -26,8 +26,8 @@ class Human:
 
     def buy_house(self, object_house, discount=0):
         if self.__money >= object_house._price * (100 - discount) / 100:
-            self.__make_deal(object_house._price, object_house)
-            print("Сделка совершена")
+            self.__make_deal(object_house._price * (100 - discount) / 100, object_house)
+            print("Сделка совершена.")
         else:
             print("Денег слишком мало для покупки дома.")
 
@@ -51,16 +51,17 @@ class SmallHouse(House):
         super().__init__(_area, _price)
 
 
-Human.default_info()
+if __name__ == '__main__':
+    Human.default_info()
 
-people = Human('Alena', 30)
+    people = Human('Alena', 30)
 
-people.info()
+    people.info()
 
-dacha = SmallHouse(100000)
+    dacha = SmallHouse(100000)
 
-people.buy_house(dacha)
+    people.buy_house(dacha)
 
-people.earn_money(500000)
+    people.earn_money(95000)
 
-people.buy_house(dacha)
+    people.buy_house(dacha, 5)

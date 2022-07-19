@@ -9,8 +9,7 @@ class Human:
         self.__house = ''
 
     def info(self):
-        print(f'{self.name}\n{self.age}\n'
-              f'{self.__money}\n{self.__house}')
+        print(f'{self.name}\n{self.age}\n{self.__money}\n{self.__house}')
 
     @staticmethod
     def default_info():
@@ -25,9 +24,9 @@ class Human:
         self.__money = self.__money + earn
 
     def buy_house(self, object_house, discount=0):
-        if self.__money >= object_house._price * (100 - discount) / 100:
-            self.__make_deal(object_house._price, object_house)
-            print("Сделка совершена")
+        if self.__money >= object_house.final_price(discount):
+            self.__make_deal(object_house.final_price(discount), object_house)
+            print("Сделка совершена.")
         else:
             print("Денег слишком мало для покупки дома.")
 
@@ -38,10 +37,7 @@ class House:
         self._price = _price
 
     def final_price(self, discount):
-        self._price = self._price - discount
-
-    @property
-    def price(self):
+        self._price = self._price * (100 - discount) / 100
         return self._price
 
 
@@ -51,16 +47,17 @@ class SmallHouse(House):
         super().__init__(_area, _price)
 
 
-Human.default_info()
+if __name__ == '__main__':
+    Human.default_info()
 
-people = Human('Alena', 30)
+    people = Human('Alena', 30)
 
-people.info()
+    people.info()
 
-dacha = SmallHouse(100000)
+    dacha = SmallHouse(100000)
 
-people.buy_house(dacha)
+    people.buy_house(dacha)
 
-people.earn_money(500000)
+    people.earn_money(95000)
 
-people.buy_house(dacha)
+    people.buy_house(dacha, 5)
