@@ -1,3 +1,4 @@
+# http://megarobot.club/задачи-2-неделя-ооп-python/
 # Задача 2. Написать программу, в которой есть главный класс Games со статическим полем Year,
 # опишите конструктор присваивающий значение полю Year, также опишите метод getName, который возвращает имя игры.
 # На основе главного класса путем наследования опишите четыре класса PCGames, PS4Games, XboxGames, MobileGames.
@@ -70,7 +71,7 @@ class Country:
 
 
 class Russia(Country):
-    def __init__(self, area,  population):
+    def __init__(self, area, population):
         super().__init__(population)
         self.area = area
 
@@ -91,6 +92,7 @@ g = Germany(4200, 84318653)
 print(g.get_population())
 g.set_population(84320000)
 print(g.get_population())
+
 
 # Задача 4. Напишите программу в которой есть главный класс с текстовым полем.
 # В главное классе должен быть метод для присваивания значения полю: без аргументов и с одним текстовым аргументом.
@@ -118,3 +120,83 @@ class Private(Home):
         super().__init__(roof_material)
         self.number_of_rooms = number_of_rooms
         self.type_of_heating = type_of_heating
+
+
+# http://megarobot.club/задачи-3-неделя-ооп-python/
+# Задача 2. Необходимо написать программу в которой описать один базовый класс в нем описать конструктор,
+# и класс потомок. Описать в классе потомке конструктор с параметрами по умолчанию.
+# Затем нужно описать класс для которого класс потомок является базовым классом и в нем переопределить конструктор.
+# В каждом классе описать по два поля и методы — show, get, set для каждого поля.
+
+class Furniture:
+    def __init__(self, name, amount):
+        self.name = name
+        self.amount = amount
+
+    def show_name(self):
+        print(f"Название {self.name}")
+
+    def show_amount(self):
+        print(f"Количество {self.amount}")
+
+    def get_name(self):
+        return self.name
+
+    def get_amount(self):
+        return self.amount
+
+    def set_name(self, name):
+        self.name = name
+
+    def set_amount(self, amount):
+        self.amount = amount
+
+
+class Chairs(Furniture):
+    def __init__(self, name, amount, back_material='grid', seat_material='cloth'):
+        super().__init__(name, amount)
+        self.back_material = back_material
+        self.seat_material = seat_material
+
+    def show_back_material(self):
+        print(self.back_material)
+
+    def get_back_material(self):
+        return self.back_material
+
+    def set_back_material(self, back_material):
+        self.back_material = back_material
+
+    def show_seat_material(self):
+        print(self.seat_material)
+
+    def get_seat_material(self):
+        return self.seat_material
+
+    def set_seat_material(self, seat_material):
+        self.seat_material = seat_material
+
+
+class OfficeChair(Chairs):
+    def __init__(self, roller_material, weight_restrictions, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.roller_material = roller_material
+        self.weight_restrictions = weight_restrictions
+
+    def show_name(self):
+        print(f"Название {self.roller_material}")
+
+    def show_amount(self):
+        print(f"Количество {self.weight_restrictions}")
+
+    def get_name(self):
+        return self.roller_material
+
+    def get_amount(self):
+        return self.weight_restrictions
+
+    def set_name(self, roller_material):
+        self.roller_material = roller_material
+
+    def set_amount(self, weight_restrictions):
+        self.weight_restrictions = weight_restrictions
