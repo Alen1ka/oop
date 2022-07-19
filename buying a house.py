@@ -13,9 +13,9 @@ class Human:
               f'{self.__money}\n{self.__house}')
 
     @staticmethod
-    def default_info(default_name=default_name, default_age=default_age):
-        print(default_name)
-        print(default_age)
+    def default_info():
+        print(Human.default_name)
+        print(Human.default_age)
 
     def __make_deal(self, price_house, object_house):
         self.home_price = self.__money - price_house
@@ -24,14 +24,12 @@ class Human:
     def earn_money(self, earn):
         self.__money = self.__money + earn
 
-    def __add__(self, other):
-        return self + other
-
-    def buy_house(self, price_house):
-        if self.__money >= price_house:
+    def buy_house(self, object_house, discount=0):
+        if self.__money >= object_house._price * (100 - discount) / 100:
+            self.__make_deal(object_house._price, object_house)
             print("Сделка совершена")
         else:
-            print(Exception("Денег слишком мало для покупки дома."))
+            print("Денег слишком мало для покупки дома.")
 
 
 class House:
@@ -55,14 +53,14 @@ class SmallHouse(House):
 
 Human.default_info()
 
-people = Human()
+people = Human('Alena', 30)
 
-Human.default_info('Alena', 30)
+people.info()
 
 dacha = SmallHouse(100000)
 
-# people.buy_house(dacha.price)
+people.buy_house(dacha)
 
 people.earn_money(500000)
 
-people.buy_house(dacha.price)
+people.buy_house(dacha)
