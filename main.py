@@ -24,8 +24,9 @@ class Human:
         self.__money = self.__money + earn
 
     def buy_house(self, object_house, discount=0):
-        if self.__money >= object_house.final_price(discount):
-            self.__make_deal(object_house.final_price(discount), object_house)
+        price = object_house.final_price(discount)
+        if self.__money >= price:
+            self.__make_deal(price, object_house)
             print("Сделка совершена.")
         else:
             print("Денег слишком мало для покупки дома.")
