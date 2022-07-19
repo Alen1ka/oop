@@ -17,11 +17,11 @@ class Human:
         print(Human.default_age)
 
     def __make_deal(self, price_house, object_house):
-        self.home_price = self.__money - price_house
-        self.home_object = object_house
+        self.__money -= price_house
+        self.__home_object = object_house
 
     def earn_money(self, earn):
-        self.__money = self.__money + earn
+        self.__money += earn
 
     def buy_house(self, object_house, discount=0):
         price = object_house.final_price(discount)
@@ -38,8 +38,8 @@ class House:
         self._price = _price
 
     def final_price(self, discount):
-        self._price = self._price * (100 - discount) / 100
-        return self._price
+        final_price = self._price * (100 - discount) / 100
+        return final_price
 
 
 class SmallHouse(House):
