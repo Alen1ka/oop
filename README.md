@@ -46,13 +46,12 @@ __Покупка дома__
 ![image](https://user-images.githubusercontent.com/57345786/179697786-9581838f-d40d-44d8-93f9-f2b920776dce.png)
 
 __Алфавит__
+
 ![image](https://user-images.githubusercontent.com/57345786/180237766-8fdd7acf-fa0e-4a02-afe5-cac722a98890.png)
 ![image](https://user-images.githubusercontent.com/57345786/180238033-3ab25d15-0cdd-467f-8569-02ef9a1f6fda.png)
 
 
 __Садовник и помидоры__
-![image](https://user-images.githubusercontent.com/57345786/180238160-99b6c365-4a9e-4a42-ab6c-ab518a018ff4.png)
+
+![image](https://user-images.githubusercontent.com/57345786/180238526-ea277a85-3306-4640-9169-429f1c98b742.png)
 ![image](https://user-images.githubusercontent.com/57345786/180238252-1ea9d37e-93be-4a68-93f7-4cf6ad15cf9e.png)
-
-
-
