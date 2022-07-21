@@ -16,14 +16,16 @@ class Tomato:
 
     def is_ripe(self):
         if self._states == "Красный":
-            print("Томат созрел")
+            # print("Томат созрел.")
+            return True
+        return False
 
 
 class TomatoBush:
     def __init__(self, num):
         self.num = num
         self.tomatoes = []
-        for i in num:
+        for i in range(num):
             self.tomatoes.append(Tomato(i))
 
     def grow_all(self):
@@ -31,29 +33,32 @@ class TomatoBush:
             tomato.grow()
 
     def all_are_ripe(self):
-        if (tomato != "Красный" for tomato in self.tomatoes):
-            return False
+        for tomato in self.tomatoes:
+            if not tomato.is_ripe():
+                return False
         return True
 
     def give_away_all(self):
-        if self.all_are_ripe():
-            self.tomatoes = []
+        self.tomatoes = []
+        print("Все плоды собраны.")
 
 
 class Gardener:
-    def __init__(self, name):
+    def __init__(self, name, _plant):
         self.name = name
-        self._plant = Tomato(1)
+        self._plant = _plant
 
     def work(self):
-        self._plant.grow()
+        self._plant.grow_all()
 
     def harvest(self):
-        tomatobush1 = TomatoBush(1)
-        if tomatobush1.all_are_ripe():
-            self.tomatoes = []
+        if self._plant.all_are_ripe():
+            print("Все плоды созрели.")
+            self._plant.give_away_all()
+            return True
         else:
             print("Не все плоды созрели.")
+            return False
 
     @staticmethod
     def knowledge_base():
@@ -69,10 +74,11 @@ class Gardener:
 
 
 if __name__ == '__main__':
-    ivan = Gardener("Ivan")
-    ivan.knowledge_base()
+    Gardener.knowledge_base()
+    tomato_bush1 = TomatoBush(1)
+    ivan = Gardener("Ivan", tomato_bush1)
     ivan.work()
     ivan.harvest()
-    while ivan.tomatoes != []:
+    while not tomato_bush1.all_are_ripe():
         ivan.work()
     ivan.harvest()
