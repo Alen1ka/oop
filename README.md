@@ -38,20 +38,20 @@ __Работа с числами, с длиной строки и слотами
 
 __Покупка дома__
 
-<img src="https://user-images.githubusercontent.com/57345786/179697442-e0f3cb09-7ae3-445b-95fc-a39ee21ee7c4.png" width="600" />
-<img src="https://user-images.githubusercontent.com/57345786/179697522-299bf1b7-5c18-4dec-ac58-47e3ca7fea93.png" width="600" />
-<img src="https://user-images.githubusercontent.com/57345786/179697635-2b7349cd-5b59-47bc-b837-65ffc6ec5a71.png" width="600" />
-<img src="https://user-images.githubusercontent.com/57345786/179697693-3fa4208c-58d4-42e9-94a5-c48df067ed35.png" width="600" />
-<img src="https://user-images.githubusercontent.com/57345786/179697749-a2b047f5-f31c-4a79-ae68-760f5ddb42d9.png" width="600" />
-<img src="https://user-images.githubusercontent.com/57345786/179697786-9581838f-d40d-44d8-93f9-f2b920776dce.png" width="600" />
+<img src="https://user-images.githubusercontent.com/57345786/179697442-e0f3cb09-7ae3-445b-95fc-a39ee21ee7c4.png" width="550" />
+<img src="https://user-images.githubusercontent.com/57345786/179697522-299bf1b7-5c18-4dec-ac58-47e3ca7fea93.png" width="550" />
+<img src="https://user-images.githubusercontent.com/57345786/179697635-2b7349cd-5b59-47bc-b837-65ffc6ec5a71.png" width="550" />
+<img src="https://user-images.githubusercontent.com/57345786/179697693-3fa4208c-58d4-42e9-94a5-c48df067ed35.png" width="550" />
+<img src="https://user-images.githubusercontent.com/57345786/179697749-a2b047f5-f31c-4a79-ae68-760f5ddb42d9.png" width="550" />
+<img src="https://user-images.githubusercontent.com/57345786/179697786-9581838f-d40d-44d8-93f9-f2b920776dce.png" width="550" />
 
 __Алфавит__
 
-<img src="https://user-images.githubusercontent.com/57345786/180237766-8fdd7acf-fa0e-4a02-afe5-cac722a98890.png" width="600" />
-<img src="https://user-images.githubusercontent.com/57345786/180238033-3ab25d15-0cdd-467f-8569-02ef9a1f6fda.png" width="600" />
+<img src="https://user-images.githubusercontent.com/57345786/180237766-8fdd7acf-fa0e-4a02-afe5-cac722a98890.png" width="550" />
+<img src="https://user-images.githubusercontent.com/57345786/180238033-3ab25d15-0cdd-467f-8569-02ef9a1f6fda.png" width="550" />
 
 
 __Садовник и помидоры__
 
-<img src="https://user-images.githubusercontent.com/57345786/180238526-ea277a85-3306-4640-9169-429f1c98b742.png" width="600" />
-<img src="https://user-images.githubusercontent.com/57345786/180238252-1ea9d37e-93be-4a68-93f7-4cf6ad15cf9e.png" width="600" />
+<img src="https://user-images.githubusercontent.com/57345786/180238526-ea277a85-3306-4640-9169-429f1c98b742.png" width="550" />
+<img src="https://user-images.githubusercontent.com/57345786/180238252-1ea9d37e-93be-4a68-93f7-4cf6ad15cf9e.png" width="550" />
