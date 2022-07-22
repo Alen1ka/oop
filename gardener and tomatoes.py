@@ -1,3 +1,4 @@
+# https://smartiqa.ru/courses/python/lesson-6
 import textwrap
 
 

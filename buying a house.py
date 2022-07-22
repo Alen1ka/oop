@@ -1,3 +1,4 @@
+# https://smartiqa.ru/courses/python/lesson-6
 class Human:
     default_name = 'Alice'
     default_age = 30
