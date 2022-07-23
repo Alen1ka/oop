@@ -4,6 +4,10 @@
 # Затем выведите возраст самой старой собаки примерно так: The oldest dog is 7 years old.
 # Создайте класс Pets, который содержит экземпляры собак; этот класс полностью отделен от класса Dog. Другими словами,
 # класс Dog не наследуется от класса Pets. Затем назначьте три экземпляра собаки экземпляру класса Pets.
+# Используя тот же файл, добавьте атрибут экземпляра is_hungry = True в класс Dog. Затем добавьте метод с именем eat(),
+# который при вызове изменяет значение is_hungry на False. Выясните, как лучше кормить каждую собаку, а затем выведите
+# «Мои собаки голодны». если все голодны или «Мои собаки не голодны». если все не голодны.
+
 class Dog:
     species = "mammal"
     is_hungry = True
@@ -13,11 +17,7 @@ class Dog:
         self.age = age
 
     def get_biggest_number(*args):  # принимает любое количество возрастов
-        the_most_adult = args[0]
-        for age in args:
-            if age > the_most_adult:
-                the_most_adult = age
-        return the_most_adult
+        return max(args)
 
     # Метод класса
     def description(self):
@@ -29,6 +29,9 @@ class Dog:
 
     def eat(self):
         self.is_hungry = False
+
+    def walk(self):
+        print("{} is walking!".format(self.name))
 
 
 # Дочерний класс (наследник класса Dog)
@@ -59,6 +62,10 @@ class Pets:
                 return "Not all animals are mammals."
         return "And they're all mammals, of course."
 
+    def walk(self):
+        for pet in self.all_pets:
+            pet.walk()
+
 
 if __name__ == "__main__":
     Rex = Dog("Rex", 2)
@@ -82,3 +89,5 @@ if __name__ == "__main__":
         print("My dogs are not hungry.")
     else:
         print("My dogs are hungry.")
+
+    pets.walk()
